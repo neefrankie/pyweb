@@ -1,0 +1,37 @@
+{% extends "layouts/content.html" %} 
+
+{% block content %}
+  {% if member %}
+    {% include "partials/member-status.html" %}
+  {% else %}
+    <h2 class="text-center mb-3">订阅FT中文网会员</h2>
+  {% endif %}
+
+  {% if paywall.promo %}
+    {% set promo = paywall.promo %}
+    {% include "partials/paywall-promo.html" %}
+  {% endif %}
+
+  <div class="row justify-content-around o-card-group">
+    {% for product in paywall.products %}
+      <div class="col-lg-6 mb-3">
+        {% include "partials/paywall-product.html" %}
+      </div>
+    {% endfor %}
+  </div>
+
+  {% if paywall.promo and paywall.promo.terms %}
+  <div class="text-muted">
+    <h6>活动条款</h6>
+    <ul>
+      {% for row in paywall.promo.terms | split %}
+        <li>{{row}}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {# <a class="btn btn-link" href="{{ sitemap.redeem }}">礼品卡兑换</a>#}
+
+  <p class="pt-5">如果订阅时遇到问题，可以致函 <a href="{{ serviceMail }}">FT客服邮箱</a></p>
+{% endblock %}

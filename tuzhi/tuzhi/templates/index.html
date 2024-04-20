@@ -1,0 +1,12 @@
+{% extends "layouts/base.html" %}
+
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% block main %}
+<h1>Welcome!</h1>
+<p>Tuzhi is a tool to recognize text from your scanned PDF.</p>
+<p>Upload a file to start.</p>
+
+{{ render_form(form, enctype="multipart/form-data") }}
+
+{% endblock %}

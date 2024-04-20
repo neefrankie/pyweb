@@ -1,0 +1,16 @@
+{%- macro render_button(label='', btn_type='submit', btn_style='primary', size=None) %}
+{% set size_class = ' btn-' + size if size else '' %}
+{% set extra_class = kwargs.pop('class', '') or kwargs.pop(class_, '') %}
+{% if extra_class %}
+    {% set extra_class = ' ' + extra_class %}
+{% endif %}
+<button type="{{ type }}" class="btn btn-{{ btn_style }}{{ size_class }}{{ extra_class }}">{{ label }}</button>
+{%- endmacro %}
+
+{%- macro render_block_button(label='', btn_type='submit', btn_style='primary', size=None, block_class=None) %}
+{% set block_class = ' ' + block_class if block_class else '' %}
+<div class="d-grid{{ block_class }}">
+    {% call render_button(label=label, btn_type=btn_type, btn_style=btn_style, size=size, **kwargs) %}
+    {% endcall %}
+</div>
+{%- endmacro%}

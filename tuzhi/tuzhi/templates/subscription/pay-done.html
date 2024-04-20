@@ -1,0 +1,57 @@
+{% extends "layouts/content.html" %}
+
+{% block content %}
+  
+  <div class="text-center mt-3">
+
+    {% if cart %}
+      <h5>感谢您订阅{{cart.header}}</h5>
+      <p>{{cart.planName}}</p>
+    {% endif %}
+
+    {% if success %}
+      <p>您可以打印本页以备日后查询，或者返回查看会员状态和订单历史。</p>
+    {% elif failed %}
+      <p>暂时未查询到支付结果，您可以返回查看会员状态和订单历史。</p>
+    {% endif %}
+  </div>
+
+  {% if success %}
+    <table class="table">
+
+      {% if success.caption %}
+        <caption class="text-center">{{ success.caption }}</caption>
+      {% endif %}
+
+      <tbody>
+        {% for row in success.rows %}
+        <tr>
+          {% for col in row %}
+            {% if loop.index == 1 %}
+              <th scope="col">{{ col }}</th>
+            {% else %}
+              <td>{{ col }}</td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+      
+    </table>
+  {% elif failed %}
+    <div class="text-center mt-3">
+      {% if failed.header %}
+        <h5>{{ failed.header}}</h5>
+      {% endif %}
+
+      {% for row in failed.rows %}
+        <p>{{ row }}</p>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <p class="text-center">
+    <a class="btn btn-primary" href="{{ backLink }}">返回</a>
+  </p>
+
+{% endblock %}

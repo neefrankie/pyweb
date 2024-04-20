@@ -1,0 +1,26 @@
+{% extends "accounts/layout.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Login{% endblock %}
+
+{% block heading %}邮箱登录{% endblock%}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <form action="{% url 'accounts:login' %}" method="post">
+            {% csrf_token %}
+
+            {{ form|crispy }}
+
+            {% include "partials/button.html" with button=form.button %}
+        </form>
+
+        <div class="d-flex justify-content-between mt-3">
+            <a href="{% url 'accounts:password_reset' %}">忘记密码?</a>
+            <a href="{% url 'accounts:signup' %}">新建账号</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

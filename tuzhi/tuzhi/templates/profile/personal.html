@@ -1,0 +1,27 @@
+{% extends "layouts/content.html" %} 
+
+{% block content %}
+
+<h5>个人信息</h5>
+  
+{% if form %}
+  <form method="post">
+    <div class="form-row">
+      {{ form.familyName.render() | safe }}
+      {{ form.givenName.render() | safe }}
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">性别</label>
+      {{ form.genderMale.render() | safe }}
+      {{ form.genderFemale.render() | safe }}
+    </div>
+
+    {{ form.birthday.render() | safe }}
+    
+    {{ form.submitBtn.render() | safe }}
+  </form>
+{% endif %}
+
+
+{% endblock %}

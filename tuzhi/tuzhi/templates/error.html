@@ -1,0 +1,17 @@
+{% extends "layouts/base.html" %}
+
+{% block main %}
+
+<div class="jumbotron">
+  {% if error.status %}
+  <h1>{{error.status}}</h1>
+  {% endif %}
+  
+  <p>{{error.message}}</p>
+
+  {% if not env.isProduction %}
+    <pre>{{error.stack}}</pre>
+  {% endif %}
+</div>
+
+{% endblock %}

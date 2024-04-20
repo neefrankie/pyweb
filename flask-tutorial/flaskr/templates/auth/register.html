@@ -1,0 +1,20 @@
+{% extends "auth/layout.html" %}
+
+{% from 'bootstrap5/form.html' import render_field %}
+{% from 'components/forms.html' import render_block_submit %}
+
+{% block header %}
+{% block title %}注册{% endblock %}
+{% endblock %}
+
+{% block content %}
+<form method="POST">
+    {{ form.csrf_token }}
+    {{ render_field(form.email) }}
+    {{ render_field(form.password) }}
+    {{ render_field(form.confirmPassword) }}
+    {{ render_block_submit(form.submit) }}
+</form>
+
+<p class="text-center mt-3">已有账号？<a href="/auth/login">登录</a></p>
+{% endblock %}

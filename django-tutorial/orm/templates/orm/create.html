@@ -1,0 +1,41 @@
+{% extends "polls/base.html" %}
+
+{% block title %}Add a book{% endblock %}
+
+{% block main %}
+
+<form action="{% url 'orm:create_book' %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend>
+            <h1>Add a book</h1>
+        </legend>
+        {% if error_message %}
+            <p>
+                <strong>{{ error_message }}</strong>
+            </p>
+        {% endif %}
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="name">
+        </div>
+        <div class="mb-3">
+            <label for="page" class="form-label">Page</label>
+            <input type="number" class="form-label" id="page" name="page">
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" class="form-label" id="price" name="price">
+        </div>
+        <div class="mb-3">
+            <label for="rating" class="form-label">Rating</label>
+            <input type="number" class="form-label" id="rating" value="0" name="rating">
+        </div>
+        <div class="mb-3">
+            <label for="cover" class="form-label">Cover Image</label>
+            <input type="url" class="form-label" id="cover" name="cover_image">
+        </div>
+    </fieldset>
+</form>
+
+{% endblock %}

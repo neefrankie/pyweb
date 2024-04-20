@@ -1,0 +1,16 @@
+{% extends "layouts/center.html" %}
+
+{% block content %}
+<div class="mt-4">
+  <h4 class="text-center">邮箱验证</h4>
+
+    <div class="text-center">
+      {{ message }}
+    </div>
+  
+    <div class="text-center">
+      <a href="{{ link.href }}">{{ link.text }}</a>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {% include "generated/icon.html" %}
+
+    <title>{% block title %}{% endblock %} - 图之OCR</title>
+
+    {% include "generated/styles.html" %}
+
+    {% block styles %}{% endblock %}
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-body-secondary border-bottom">
+    <div class="container">
+        <a class="navbar-brand" href="/">图之OCR</a>
+        {% block navbar %}{% endblock %}
+    </div>
+</nav>
+
+{% block topBanner %}{% endblock %}
+
+<main class="min-vh-100" role="main">
+    <div class="container">
+        {% block main %}{% endblock %}
+    </div>
+</main>
+
+<footer class="text-bg-dark border-top border-primary border-5 pt-3 pb-3">
+    <div class="container">
+        <div class="o-footer__copyright">
+            <small>
+                © 图之OCR.
+            </small>
+        </div>
+    </div>
+</footer>
+
+{% include "generated/scripts.html" %}
+
+{% block scripts %}{% endblock %}
+</body>
+</html>

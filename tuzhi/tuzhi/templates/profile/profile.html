@@ -1,0 +1,27 @@
+{% extends "layouts/content.html" %} 
+
+{% block content %}
+  {% if isWxOnly %}
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center">
+        <h4>微信用户</h4>
+      
+        <figure class="figure">
+          <img class="figure-img img-fluid rounded" src="{{ wechat.avatarUrl }}" alt="">
+          <figcaption class="figure-caption">{{ wechat.nickname }}</figcaption>
+        </figure>
+      
+        {% include "partials/urge-link.html" %}
+
+      </div>
+    </div>
+
+  {% else %}
+    
+  {% for row in rows %}
+    {% include "partials/table-row.html" %}
+  {% endfor %}
+
+  {% endif %}
+
+{% endblock %}

@@ -1,0 +1,24 @@
+:root {
+    --color-teal: #0d7680;
+    --color-teal20: #052f33;
+    --color-teal30: #08474d;
+    --color-teal40: #0a5e66;
+    --color-teal50: #0d7680;
+    --color-teal60: #0f8e99;
+    --color-teal70: #12a5b3;
+    --color-teal80: #14bdcc;
+    --color-teal90: #17d4e6;
+    --color-teal100: #1aecff;
+    --color-emerald: #009b77;
+}
+.bg-emerald {
+  background-color: var(--color-emerald);
+}
+li a {
+    color: green;
+}
+.t-brand {
+  box-sizing: border-box;
+  height: 50px;
+  padding: 5px;
+}

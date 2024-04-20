@@ -1,0 +1,21 @@
+{% extends "layouts/center.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+  <h1>微信授权失败</h1>
+
+  {% if flash %}{{ flash.render() | safe }}{% endif %}
+
+  {% if reason.state %}
+    <p>{{ reason.state }}</p>
+  {% endif %}
+  
+  {% if reason.code %}
+    <p>{{ reason.code }}</p>
+  {% endif %}
+  
+  <div class="text-center"><a class="btn btn-link" href="{{ link }}">返回</a></div>
+</div>
+
+{% endblock %}

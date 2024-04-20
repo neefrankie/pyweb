@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "django-tutorial"
+version = "0.1.0"
+description = ""
+authors = ["neefrankie <neefrankie@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.0.2"
+python-dotenv = "^1.0.1"
+pymysql = "^1.1.0"
+django-crispy-forms = "^2.1"
+crispy-bootstrap5 = "^2024.2"
+
+
+[tool.poetry.group.dev.dependencies]
+django-debug-toolbar = "^4.3.0"
+faker = "^24.4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

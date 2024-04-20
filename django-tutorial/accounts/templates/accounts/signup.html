@@ -1,0 +1,25 @@
+{% extends "accounts/layout.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Login{% endblock %}
+
+{% block heading %}注册{% endblock%}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <form action="{% url 'accounts:signup' %}" method="post">
+            {% csrf_token %}
+
+            {{ form|crispy }}
+
+            {% include "partials/button.html" with button=form.button %}
+        </form>
+
+        <div class="d-flex justify-content-between mt-3">
+            <a href="{% url 'accounts:login' %}">登录</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

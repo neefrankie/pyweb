@@ -1,0 +1,7 @@
+{% if button.block %}
+<div class="d-grid">
+    <button class="{{button.class_name|default:'btn btn-primary'}}" type="{{button.type|default:'submit'}}" {% include "partials/attrs.html" with attrs=button.attrs %}>{{button.text|default:'Submit'}}</button>
+</div>
+{% else %}
+<button class="{{button.class_name|default:'btn btn-primary'}}" type="{{button.type}}" {% include "partials/attrs.html" with attrs=button.attrs %}>{{button.text|default:'Submit'}}</button>
+{% endif %}

@@ -1,0 +1,25 @@
+{# :param field: a subclass of WTForm Field #}
+{%- macro with_errors(field) %}
+{% if field.errors %}
+{% set css_class = 'is-invalid ' + kwargs.pop('class_', '') %}
+{{ field(class_=css_class, **kwargs) }}
+<ul class="invalid-feedback">
+    {% for error in field.errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+{{ field(**kwargs) }}
+{% endif%}
+{%- endmacro %}
+
+{%- macro render_block_submit(field, btn_style='primary', btn_size=None, block_class=None) %}
+{% set block_class = ' ' + block_class if block_class else '' %}
+{% set btn_class='btn btn-' + btn_style + kwargs.pop('class_', '') %}
+{% if btn_size %}
+    {% set btn_class = btn_class + ' btn-' +  btn_size %}
+{% endif %}
+<div class="d-grid{{ block_class }}">
+    {{ field(class_=btn_class, **kwargs) }}
+</div>
+{%- endmacro %}

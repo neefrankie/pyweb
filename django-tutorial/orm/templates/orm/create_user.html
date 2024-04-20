@@ -1,0 +1,17 @@
+{% extends "polls/base.html" %}
+
+{% block title %}Create a user{% endblock %}
+
+{% block main %}
+
+<h1>Create User</h1>
+
+<form action="{% url 'orm:create_user' %}" method="post">
+    {% csrf_token %}
+
+    {{ form }}
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "link/base-layout.html" %} 
+
+{% block extraContent %}
+
+  {% include "partials/card.html" %}
+
+  {% if form %}
+    <div class="mt-5 mb-5">
+      <h5>检测到您是FT的会员，解除账号绑定需要选择会员信息保留在哪个账号下，请选择</h5>
+      <p>通过苹果内购、Stripe或企业购买的会员只能保留在邮箱账号上</p>
+    </div>
+  {% endif %}
+{% endblock %}

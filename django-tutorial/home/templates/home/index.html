@@ -1,0 +1,14 @@
+{% extends "layout/base.html" %}
+
+{% block main %}
+<div class="row pt-3">
+
+    <div class="col-sm-12 col-md-3" role="navigation">
+      <div>Side bar</div>
+    </div>
+
+    <div class="col-sm-12 col-md-9">
+      {% block content %}Hello{% endblock %}
+    </div>
+</div>
+{% endblock %}

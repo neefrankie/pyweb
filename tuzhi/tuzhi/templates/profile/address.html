@@ -1,0 +1,25 @@
+{% extends "layouts/content.html" %} 
+
+{% block content %}
+  <h5>地址</h5>
+
+  {% if form %}
+    <form method="post">
+      
+      {{ form.country.render() | safe }}
+
+      <div class="form-row">
+        {{ form.province.render() | safe }}
+        {{ form.city.render() | safe }}
+        {{ form.district.render() | safe }}
+      </div>
+      <div class="form-row">
+        {{ form.street.render() | safe }}
+        {{ form.postcode.render() | safe }}
+      </div>
+      
+      {{ form.submitBtn.render() | safe }}
+    </form>
+  {% endif %}   
+
+{% endblock %}
